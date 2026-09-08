@@ -8,6 +8,20 @@ A reproducible Python research project testing a dynamic London-session momentum
 
 > Educational portfolio project—not investment advice or evidence of executable live performance.
 
+## Research question
+
+Can a dynamic breakout of the previous rolling hour capture directional BTCUSDT volatility during the London morning while keeping loss severity stable through equity-based position sizing?
+
+## Research workflow
+
+1. Define the hypothesis and freeze the trading rules before evaluating performance.
+2. Download and checksum-verify public Binance one-minute archives.
+3. Validate timestamp ordering, duplicates and OHLC consistency.
+4. Simulate stop entries and trailing exits without using future candles.
+5. Evaluate absolute performance, drawdown, annual consistency and position scaling.
+
+Open the [research notebook](notebooks/01_BTCUSDT_Volatility_Breakout_Research.ipynb) for the step-by-step analysis.
+
 ## Results
 
 | Metric | Result |
@@ -91,4 +105,6 @@ The study deliberately sets fees, spread, slippage and financing to zero. One-mi
 ## Résumé bullet
 
 Built a Python event-driven BTCUSDT breakout backtester over five years of one-minute Binance data, implementing London-time session handling, equity-based 0.05% risk sizing, dynamic entries, trailing stops, ambiguity controls, automated tests, and reproducible performance reporting across 1,301 simulated trades.
+
+See the [LinkedIn project post](docs/LINKEDIN_PROJECT_POST.md) and [résumé versions](docs/RESUME_BULLETS.md) for concise portfolio presentation.
 
