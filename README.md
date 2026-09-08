@@ -61,6 +61,7 @@ Increasing risk changed the size of the result. It did not improve the strategy 
 BTCUSDT-London-Volatility-Breakout/
 ├── README.md
 ├── strategy.py
+├── download_data.py
 ├── backtest.ipynb
 ├── config/
 │   └── params.yaml
@@ -76,6 +77,7 @@ BTCUSDT-London-Volatility-Breakout/
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+python download_data.py
 python strategy.py
 ```
 
