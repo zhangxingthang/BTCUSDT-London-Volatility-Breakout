@@ -1,0 +1,32 @@
+symbol: BTCUSDT
+start: 2021-01-01
+end: 2026-01-01
+timezone: Europe/London
+
+data:
+  source: Binance spot monthly klines
+  interval: 1m
+  directory: data/binance
+
+strategy:
+  lookback_minutes: 60
+  entry_start: "08:00"
+  entry_end: "11:00"
+  close_time: "16:00"
+  weekdays_only: true
+  max_trades_per_day: 1
+
+risk:
+  starting_equity_usd: 150000
+  risk_per_trade: 0.0005
+  stop_distance_fraction: 0.005
+
+costs:
+  commission_bps: 0
+  slippage_bps: 0
+  financing_bps: 0
+
+execution:
+  synthetic_short_sales: true
+  skip_dual_entry_candles: true
+
