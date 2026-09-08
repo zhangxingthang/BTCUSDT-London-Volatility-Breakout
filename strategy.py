@@ -203,9 +203,9 @@ def run_backtest(bars: pd.DataFrame, config: Config) -> tuple[pd.DataFrame, pd.S
             trades.append({
                 "date_london": str(date), "side": "long" if position == 1 else "short",
                 "entry_time_utc": entry_time.isoformat(), "exit_time_utc": exit_time.isoformat(),
-                "entry_price": entry_price, "exit_price": float(exit_price), "quantity_btc": quantity,
-                "risk_budget_usd": starting_equity * config.risk_per_trade,
-                "gross_pnl_usd": gross_pnl, "costs_usd": costs, "net_pnl_usd": net_pnl,
+                "entry_price": entry_price, "exit_price": float(exit_price), "units": quantity,
+                "initial_risk_usd": starting_equity * config.risk_per_trade,
+                "gross_pnl_usd": gross_pnl, "costs_usd": costs, "pnl_usd": net_pnl,
                 "ending_equity_usd": equity, "exit_reason": exit_reason,
             })
         daily.append({"date": pd.Timestamp(date, tz="UTC"), "equity_usd": equity})
@@ -222,8 +222,8 @@ def performance(trades: pd.DataFrame, equity: pd.Series, config: Config) -> dict
     daily_returns = equity.pct_change().fillna(0)
     years = (pd.Timestamp(config.end) - pd.Timestamp(config.start)).days / 365.2425
     drawdown = equity / equity.cummax() - 1
-    wins = trades.loc[trades.net_pnl_usd > 0, "net_pnl_usd"]
-    losses = trades.loc[trades.net_pnl_usd < 0, "net_pnl_usd"]
+    wins = trades.loc[trades.pnl_usd > 0, "pnl_usd"]
+    losses = trades.loc[trades.pnl_usd < 0, "pnl_usd"]
     volatility = daily_returns.std(ddof=1)
     return {
         "ending_equity_usd": float(equity.iloc[-1]),
@@ -232,7 +232,7 @@ def performance(trades: pd.DataFrame, equity: pd.Series, config: Config) -> dict
         "max_drawdown": float(drawdown.min()),
         "sharpe_0rf": float(daily_returns.mean() / volatility * math.sqrt(252)),
         "trades": int(len(trades)),
-        "win_rate": float((trades.net_pnl_usd > 0).mean()),
+        "win_rate": float((trades.pnl_usd > 0).mean()),
         "profit_factor": float(wins.sum() / abs(losses.sum())),
     }
 
