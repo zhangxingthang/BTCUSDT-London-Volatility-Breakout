@@ -1,0 +1,49 @@
+{
+  "symbol": "BTCUSDT",
+  "config": {
+    "start": "2021-01-01",
+    "end": "2026-01-01",
+    "initial_equity_usd": 150000.0,
+    "risk_fraction": 0.0005,
+    "bar_minutes": 1,
+    "lookback_bars": 60,
+    "entry_start_hour": 8,
+    "entry_end_hour": 11,
+    "liquidation_hour": 16,
+    "fx_stop_distance": 0.0005,
+    "btc_stop_fraction": 0.005,
+    "symbols": [
+      "BTCUSDT"
+    ],
+    "data_source_label": "HistData M1 bid candles for FX; Binance spot M1 trade candles for BTCUSDT"
+  },
+  "metrics": {
+    "starting_equity_usd": 150000.0,
+    "ending_equity_usd": 153944.58659588223,
+    "total_return": 0.02629724397254818,
+    "cagr": 0.005205589653634712,
+    "annualized_volatility": 0.008195410449659926,
+    "sharpe_0rf": 0.6224559334484786,
+    "max_drawdown": -0.013380315958432587,
+    "trade_count": 1301,
+    "win_rate": 0.393543428132206,
+    "profit_factor": 1.1109141709056236,
+    "average_trade_usd": 3.031965100601235,
+    "median_trade_usd": -21.586477146623377,
+    "largest_win_usd": 472.4483988130157,
+    "largest_loss_usd": -136.22542916696338,
+    "session_close_exits": 16
+  },
+  "data_quality": {
+    "rows": 2628367,
+    "first_timestamp_utc": "2021-01-01T00:00:00+00:00",
+    "last_timestamp_utc": "2025-12-31T23:59:00+00:00",
+    "duplicate_timestamps": 0,
+    "non_weekend_gaps_over_5m_under_2d": 7,
+    "largest_gap_hours": 4.75,
+    "identical_duplicate_rows_removed": 0
+  },
+  "skipped_days": 3,
+  "data_source": "HistData M1 bid candles for FX; Binance spot M1 trade candles for BTCUSDT",
+  "costs": "Spread, commission, slippage, swap and financing set to zero at user's request."
+}
