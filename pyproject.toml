@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "btcusdt-london-breakout"
+version = "1.0.0"
+description = "Five-year Python backtest of an equity-scaled BTCUSDT London breakout"
+requires-python = ">=3.10"
+dependencies = ["matplotlib>=3.8", "numpy>=1.26", "pandas>=2.1", "requests>=2.31"]
+
+[project.optional-dependencies]
+dev = ["jupyter>=1.0", "pytest>=8.0"]
+
+[project.scripts]
+btc-breakout = "fx_backtest.independent_breakout:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
