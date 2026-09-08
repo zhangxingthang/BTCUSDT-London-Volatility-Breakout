@@ -2,7 +2,9 @@
 __pycache__/
 .pytest_cache/
 .matplotlib-cache/
-data/
+data/*
+!data/README.md
+results/reproduced_*
 *.pyc
 .ipynb_checkpoints/
 
